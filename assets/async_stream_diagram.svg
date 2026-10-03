@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c10"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1f2430"/>
+      <stop offset="100%" stop-color="#161922"/>
+    </linearGradient>
+    <linearGradient id="streamGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38ef7d"/>
+      <stop offset="50%" stop-color="#00c6ff"/>
+      <stop offset="100%" stop-color="#7928ca"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="380" fill="url(#bg)" rx="14"/>
+
+  <!-- Top Title -->
+  <text x="500" y="48" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="22" font-weight="800" fill="url(#streamGrad)" letter-spacing="1">SWIFT 6 ASYNC STREAM PIPELINES</text>
+  <text x="500" y="78" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="13" fill="#8b949e">Bridging Delegate Callbacks · Actor-Based Multicasting · Stream Transformers</text>
+
+  <!-- Section 1: Callback Bridge -->
+  <rect x="50" y="110" width="410" height="230" rx="10" fill="url(#cardGrad)" stroke="#38ef7d" stroke-width="1.5"/>
+  <circle cx="90" cy="145" r="16" fill="#38ef7d" fill-opacity="0.15"/>
+  <text x="90" y="151" text-anchor="middle" font-size="15">🔄</text>
+  <text x="120" y="151" font-family="-apple-system, sans-serif" font-size="16" font-weight="700" fill="#f0f6fc">AsyncCallbackStream</text>
+
+  <rect x="80" y="180" width="350" height="40" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="95" y="205" font-family="monospace" font-size="12" fill="#e36fee">legacyAPI.onUpdate { val in ... }</text>
+
+  <line x1="255" y1="220" x2="255" y2="245" stroke="#38ef7d" stroke-width="2" stroke-dasharray="3"/>
+
+  <rect x="80" y="245" width="350" height="75" rx="6" fill="#0d1117" stroke="#38ef7d" stroke-width="1"/>
+  <text x="95" y="270" font-family="monospace" font-size="12" fill="#38ef7d">continuation.yield(val)</text>
+  <text x="95" y="295" font-family="monospace" font-size="12" fill="#8b949e">onTermination: teardownBox.invoke()</text>
+
+  <!-- Section 2: Multicast Broadcaster -->
+  <rect x="520" y="110" width="430" height="230" rx="10" fill="url(#cardGrad)" stroke="#00c6ff" stroke-width="1.5"/>
+  <circle cx="560" cy="145" r="16" fill="#00c6ff" fill-opacity="0.15"/>
+  <text x="560" y="151" text-anchor="middle" font-size="15">📡</text>
+  <text x="590" y="151" font-family="-apple-system, sans-serif" font-size="16" font-weight="700" fill="#f0f6fc">AsyncMulticastStream</text>
+
+  <!-- Central Hub Actor -->
+  <rect x="550" y="180" width="160" height="50" rx="6" fill="#0d1117" stroke="#00c6ff" stroke-width="1"/>
+  <text x="630" y="202" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" fill="#f0f6fc">Broadcast Actor</text>
+  <text x="630" y="220" text-anchor="middle" font-family="monospace" font-size="10" fill="#00c6ff">hub.broadcast(data)</text>
+
+  <!-- Subscribers Fanout -->
+  <!-- Sub 1 -->
+  <path d="M 710,195 L 770,175" stroke="#00c6ff" stroke-width="1.5"/>
+  <rect x="770" y="160" width="150" height="30" rx="4" fill="#141820" stroke="#30363d"/>
+  <text x="845" y="180" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#f0f6fc">Consumer Task 1</text>
+
+  <!-- Sub 2 -->
+  <path d="M 710,205 L 770,215" stroke="#00c6ff" stroke-width="1.5"/>
+  <rect x="770" y="200" width="150" height="30" rx="4" fill="#141820" stroke="#30363d"/>
+  <text x="845" y="220" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#f0f6fc">Consumer Task 2</text>
+
+  <!-- Sub 3 -->
+  <path d="M 710,215 L 770,255" stroke="#00c6ff" stroke-width="1.5"/>
+  <rect x="770" y="240" width="150" height="30" rx="4" fill="#141820" stroke="#30363d"/>
+  <text x="845" y="260" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#f0f6fc">Consumer Task 3</text>
+
+  <text x="735" y="315" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" fill="#8b949e">Auto-pruning disconnected subscribers · Thread-safe Sendable</text>
+</svg>
